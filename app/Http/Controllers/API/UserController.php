@@ -50,7 +50,7 @@ class UserController extends Controller
      */
     public function show(User $user)
     {
-        return $user;
+        return $user->load('groups');
     }
 
     /**
@@ -69,7 +69,7 @@ class UserController extends Controller
 
         if ($validator->fails()) {
             return response()->json(['msg'=>$validator->errors()->first()], 400);
-        } 
+        }   
         
         $user->name =  $request->name;
         $user->save();
