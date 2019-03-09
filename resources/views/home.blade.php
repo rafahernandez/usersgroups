@@ -13,8 +13,36 @@
                             {{ session('status') }}
                         </div>
                     @endif
-
-                    You are logged in!
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="card" style="width: 18rem;">
+                                <div class="card-header">
+                                    Users
+                                </div>
+                                <ul class="list-group list-group-flush">
+                                    @foreach ($users as $user)
+                                    <li class="list-group-item">
+                                        <a href="/user/{{ $user->id }}">{{ $user->id }}. {{ $user->name }}</a>
+                                    </li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="card" style="width: 18rem;">
+                                <div class="card-header">
+                                    Groups
+                                </div>
+                                <ul class="list-group list-group-flush">
+                                    @foreach ($groups as $group)
+                                    <li class="list-group-item">
+                                        <a href="/group/{{ $group->id }}">{{ $group->id }}. {{ $group->name }}</a>
+                                    </li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
